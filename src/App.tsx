@@ -7,12 +7,10 @@ export default function App() {
   return (
     <>
       <BrowserRouter>
-        <Header />        
-        <main>
-          <Routes>
-            <Route path="/" element={<MoviesList />} />
-          </Routes>
-        </main>
+        <Header />
+        <Routes>
+          <Route path="/" element={<MoviesList />} />
+        </Routes>
       </BrowserRouter>
     </>
   );
