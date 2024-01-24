@@ -1,13 +1,15 @@
 import React from "react";
+import styles from "../../styles/SearchBar/SearchBar.module.scss";
 
 const SearchBar = () => {
   return (
-    <section>
-      <div>
-        <input type="text" placeholder="Search" />
-        <button>Search</button>
-      </div>
-    </section>
+    <div className={styles.searchBar}>
+      <input
+        type="text"
+        placeholder="Search here your favorite movie"
+        className={styles.searchBar__field}
+      />
+    </div>
   );
 };
 

@@ -1,17 +1,37 @@
 import React from "react";
 import MovieItem from "../MovieItem/MovieItem";
-import { Movie } from "../../types/movie.types";
+import { MoviesContext } from "../../context/MoviesContext";
+import styles from "../../styles/MoviesList/MoviesList.module.scss";
 
-interface MoviesListProps {}
+const MoviesList = () => {
+  const movies = React.useContext(MoviesContext);
+  console.log(movies);
 
-const MoviesList: React.FC<MoviesListProps> = () => {
-  const movies: Movie[] = [];
-  
-  const moviesItems = movies.map((movie) => (
-    <MovieItem key={movie.id} movie={movie} />
-  ));
+  const renderMoviesList = () => {
+    return (
+      movies &&
+      movies.data.map((movie) => (
+        <React.Fragment key={movie.id}>
+          <MovieItem movie={movie} />
+        </React.Fragment>
+      ))
+    );
+  };
 
-  return <div className="movies-list">{moviesItems}</div>;
+  return (
+    <section className={`${styles.moviesList} container`}>
+      <header className={styles.moviesList__header}>
+        <h1 className={styles.moviesList__title}>Popular movies</h1>
+
+        <div className={styles.moviesList__toggle}>
+          <input type="checkbox" id="featured" />
+          <label htmlFor="featured">Featured</label>
+        </div>
+      </header>
+
+      <div className={styles.moviesList__grid}>{renderMoviesList()}</div>
+    </section>
+  );
 };
 
 export default MoviesList;

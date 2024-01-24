@@ -1,0 +1,17 @@
+@import "../vars";
+
+.searchBar {
+  display: flex;
+  flex: 1;
+  gap: 1rem;
+    
+  &__field {
+    max-width: 28rem;
+    border-radius: .5rem;
+    border: 0;
+    outline: 0;
+    width: 100%;
+    flex-grow: 1;
+    padding: .5rem;
+  }
+}

@@ -1,9 +1,6 @@
-import React, { ReactNode, SetStateAction } from "react";
-
-interface MoviesContextProps {
-  data: [];
-  setData: React.Dispatch<SetStateAction<[]>>;
-}
+import React, { ReactNode } from "react";
+import { MoviesServices } from "../services/modules/movies";
+import { MoviesContextProps } from "../types/moviesContextProps.types";
 
 export const MoviesContext = React.createContext<
   MoviesContextProps | undefined
@@ -15,7 +12,16 @@ interface MoviesStorageProps {
 
 export const MoviesStorage: React.FC<MoviesStorageProps> = ({ children }) => {
   const [data, setData] = React.useState<[]>([]);
-console.log("eu sou global")
+
+  const getNowPlayingMovies = React.useCallback(async () => {
+    const allMovies = await MoviesServices.getNowPlayingMovies();
+    setData(allMovies);
+  }, []);
+
+  React.useEffect(() => {
+    getNowPlayingMovies();
+  }, [getNowPlayingMovies]);
+
   return (
     <MoviesContext.Provider
       value={{

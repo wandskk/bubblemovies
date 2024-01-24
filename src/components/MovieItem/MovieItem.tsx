@@ -1,5 +1,5 @@
-import React from 'react';
-import { Movie } from '../../types/movie.types';
+import React from "react";
+import { Movie } from "../../types/movie.types";
 
 interface MovieItemProps {
   movie: Movie;
