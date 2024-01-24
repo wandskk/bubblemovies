@@ -1,14 +1,13 @@
-
 import React from "react";
 import NavMenuItem from "../NavMenuItem/NavMenuItem";
+import { menuItems } from "../../resources/utils/menuItems";
+import { MenuItem } from "../../types/menuItem.types";
 import { MdOutlineMenu } from "react-icons/md";
-
 import styles from "../../styles/NavMenu/NavMenu.module.scss";
 
 const NavMenu = () => {
-  const [isMobileMenuOpen, setMobileMenuOpen] = React.useState(false);
-
-  const toggleMobileMenu = () => setMobileMenuOpen(!isMobileMenuOpen);
+  const [isOpen, setIsOpen] = React.useState(false);
+  const toggleMobileMenu = () => setIsOpen(!isOpen);
 
   return (
     <nav className={styles.navMenu}>
@@ -17,35 +16,17 @@ const NavMenu = () => {
       </div>
       <ul
         className={`${styles.navMenu__list} ${
-          isMobileMenuOpen ? styles["navMenu__list--showMobile"] : ""
+          isOpen ? styles["navMenu__list--showMobile"] : ""
         }`}
       >
-        <NavMenuItem title="Go to home" label="Home" link="/" />
-        <NavMenuItem
-          title="Go to popular movies"
-          label="Popular"
-          link="/popular"
-        />
-        <NavMenuItem
-          title="Go to top rated movies"
-          label="Top Rated"
-          link="/top-rated"
-        />
-        <NavMenuItem
-          title="Go to upcoming movies"
-          label="Upcoming"
-          link="/upcoming"
-        />
-        <NavMenuItem
-          title="Go to now playing movies"
-          label="Now Playing"
-          link="/now-playing"
-        />
-        <NavMenuItem
-          title="Go to categories movies"
-          label="Categories"
-          link="/categories"
-        />
+        {menuItems.map((item: MenuItem, index: number) => (
+          <NavMenuItem
+            key={index}
+            title={item.title}
+            label={item.label}
+            link={item.link}
+          />
+        ))}
       </ul>
     </nav>
   );

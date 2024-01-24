@@ -1,14 +1,9 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
+import { MenuItem } from "../../types/menuItem.types";
 import styles from "../../styles/NavMenuItem/NavMenuItem.module.scss";
 
-interface NavMenuItemProps {
-  title: string;
-  label: string;
-  link: string;
-}
-
-const NavMenuItem: React.FC<NavMenuItemProps> = ({ title, label, link }) => {
+const NavMenuItem: React.FC<MenuItem> = ({ title, label, link }) => {
   const [active, setActive] = React.useState(false);
   const location = useLocation();
 
