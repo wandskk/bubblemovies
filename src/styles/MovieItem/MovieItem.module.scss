@@ -1,0 +1,20 @@
+.movieItem {
+  display: flex;
+  flex-direction: column;
+
+  &__header {
+
+  }
+
+  &__poster {
+    width: 100%;
+  }
+
+  &__title {
+    font-size: .95rem;
+  }
+
+  &__year {
+    font-size:.8rem;
+  }  
+}

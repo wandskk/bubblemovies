@@ -1,7 +1,7 @@
 import { api } from "../../index";
 
 export const MoviesServices = {
-    getGenres: async () => {
+    getAllGenres: async () => {
         try {
             const response = await api.get('/genres');
             return response.data;

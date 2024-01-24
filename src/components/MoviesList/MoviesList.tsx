@@ -5,7 +5,6 @@ import styles from "../../styles/MoviesList/MoviesList.module.scss";
 
 const MoviesList = () => {
   const movies = React.useContext(MoviesContext);
-  console.log(movies);
 
   const renderMoviesList = () => {
     return (

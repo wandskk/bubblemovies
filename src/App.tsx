@@ -1,4 +1,4 @@
-import MoviesList from "./components/MovieList/MoviesList";
+import MoviesList from "./components/MoviesList/MoviesList";
 import Header from "./components/Header/Header";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { MoviesStorage } from "./context/MoviesContext";
