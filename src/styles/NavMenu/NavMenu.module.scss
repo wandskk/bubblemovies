@@ -1,12 +1,17 @@
-// NavMenu.module.scss
-
 .navMenu {
   display: flex;
   gap: 1rem;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
   color: white;
+
+  @media (max-width: 768px) {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 2rem;
+    grid-column-start: 2;
+    grid-column-end: 3;
+  }
 
   &--mobile {
     flex-direction: column;
