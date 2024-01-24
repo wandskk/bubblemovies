@@ -7,7 +7,7 @@ interface MoviesListProps {
 }
 
 const MoviesList: React.FC<MoviesListProps> = ({ movies }) => {
-  const moviesItems = movies.map((movie, index) => (
+  const moviesItems = movies.map((movie) => (
     <MovieItem key={movie.id} movie={movie} />
   ));
 
