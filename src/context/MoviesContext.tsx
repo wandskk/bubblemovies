@@ -11,12 +11,34 @@ interface MoviesStorageProps {
 }
 
 export const MoviesStorage: React.FC<MoviesStorageProps> = ({ children }) => {
-  const [data, setData] = React.useState<[]>([]);
   const [genres, setGenres] = React.useState<[]>([]);
+  const [nowPlaying, setNowPlaying] = React.useState<[]>([]);
+  const [popular, setPopular] = React.useState<[]>([]);
+  const [topRated, setTopRated] = React.useState<[]>([]);
+  const [upcoming, setUpcoming] = React.useState<[]>([]);
+  const [search, setSearch] = React.useState<string>("");
+  const [featured, setFeatured] = React.useState<boolean>(false);
+
+  console.log(featured)
 
   const getNowPlayingMovies = React.useCallback(async () => {
     const allMovies = await MoviesServices.getNowPlayingMovies();
-    setData(allMovies);
+    setNowPlaying(allMovies);
+  }, []);
+
+  const getPopularMovies = React.useCallback(async () => {
+    const allMovies = await MoviesServices.getPopularMovies();
+    setPopular(allMovies);
+  }, []);
+
+  const getTopRatedMovies = React.useCallback(async () => {
+    const allMovies = await MoviesServices.getTopRatedMovies();
+    setTopRated(allMovies);
+  }, []);
+
+  const getUpcomingMovies = React.useCallback(async () => {
+    const allMovies = await MoviesServices.getUpcomingMovies();
+    setUpcoming(allMovies);
   }, []);
 
   const getAllGenres = React.useCallback(async () => {
@@ -29,15 +51,33 @@ export const MoviesStorage: React.FC<MoviesStorageProps> = ({ children }) => {
   }, [getNowPlayingMovies]);
 
   React.useEffect(() => {
+    getPopularMovies();
+  }, [getPopularMovies]);
+
+  React.useEffect(() => {
+    getTopRatedMovies();
+  }, [getTopRatedMovies]);
+
+  React.useEffect(() => {
+    getUpcomingMovies();
+  }, [getUpcomingMovies]);
+
+  React.useEffect(() => {
     getAllGenres();
   }, [getAllGenres]);
 
   return (
     <MoviesContext.Provider
       value={{
-        data,
+        nowPlaying,
+        popular,
+        topRated,
+        upcoming,
         genres,
-        setData,
+        search, 
+        featured, 
+        setSearch,
+        setFeatured
       }}
     >
       {children}

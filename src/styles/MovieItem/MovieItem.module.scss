@@ -1,9 +1,27 @@
+@import "../vars";
+
 .movieItem {
   display: flex;
   flex-direction: column;
+  min-width: 10rem;
+  max-width: 10rem;
+  width: 100%;
+  cursor: pointer;
 
   &__header {
+    position: relative;
+  }
 
+  &__featured {
+    position: absolute;
+    background-color: $primary-red;
+    color: #fff;
+    font-size: .8rem;
+    border-radius: .5rem;
+    padding: .2rem .5rem;
+    top: .5rem;
+    right: .5rem;
+    font-weight: bold;
   }
 
   &__poster {
@@ -11,10 +29,13 @@
   }
 
   &__title {
-    font-size: .95rem;
+    font-size: 0.95rem;
+    color: $primary-gray
   }
 
-  &__year {
-    font-size:.8rem;
-  }  
+  &__details {
+    font-size: 0.8rem;
+    font-weight: 500;
+    opacity: .6;
+  }
 }

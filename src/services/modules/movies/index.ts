@@ -9,10 +9,33 @@ export const MoviesServices = {
             console.log(error);
         }
     },
-    getNowPlayingMovies: async (title?: string) => {
+    getNowPlayingMovies: async () => {
         try {
-            const response = await api.get(`/now-playing${title ? '?title=' + title : ''}`);
-            console.log(response.data);
+            const response = await api.get('/now-playing');
+            return response.data;
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    getPopularMovies: async () => {
+        try {
+            const response = await api.get('/popular');
+            return response.data;
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    getTopRatedMovies: async () => {
+        try {
+            const response = await api.get('/top-rated');
+            return response.data;
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    getUpcomingMovies: async () => {
+        try {
+            const response = await api.get('/upcoming');
             return response.data;
         } catch (error) {
             console.log(error);

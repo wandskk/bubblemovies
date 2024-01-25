@@ -11,15 +11,18 @@ interface MovieItemProps {
 const assetsUrl = "https://www.themoviedb.org/t/p/w220_and_h330_face/";
 
 const MovieItem: React.FC<MovieItemProps> = ({ movie }) => {
-  const movies = React.useContext(MoviesContext);
+  const context = React.useContext(MoviesContext);
   const genres = movie.genre_ids
-    .map((genre) => movies?.genres.find((g) => g.id === genre))
+    .map((genre) => context?.genres.find((g) => g.id === genre))
     .map((g) => g?.name)
     .join(" | ");
 
   return (
     <div className={styles.movieItem}>
       <div className={styles.movieItem__header}>
+        {movie.featured && (
+          <span className={styles.movieItem__featured}>Featured</span>
+        )}
         <img
           className={styles.movieItem__poster}
           src={assetsUrl + movie.poster_path}
@@ -29,7 +32,7 @@ const MovieItem: React.FC<MovieItemProps> = ({ movie }) => {
       </div>
       <div className={styles.movieItem__footer}>
         <h4 className={styles.movieItem__title}>{movie.title}</h4>
-        <p className={styles.movieItem__year}>
+        <p className={styles.movieItem__details}>
           {date.getYear(movie.release_date)} - {genres}
         </p>
       </div>
