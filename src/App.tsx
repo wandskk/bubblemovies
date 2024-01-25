@@ -5,7 +5,7 @@ import { MoviesStorage } from "./context/MoviesContext";
 import "./styles.css";
 import Footer from "./components/Footer/Footer";
 
-export default function App() {
+const App = () => {
   return (
     <>
       <MoviesStorage>
@@ -18,4 +18,6 @@ export default function App() {
       </MoviesStorage>
     </>
   );
-}
+};
+
+export default App;
