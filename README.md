@@ -30,7 +30,7 @@ Este projeto foi criando com:
 * [React Transition Group](https://www.npmjs.com/package/react-transition-group)
 
 ## Estrutura de pastas do projeto
-
+```sh
 |-- src
 |   |-- assets
 |   |   |-- images
@@ -122,6 +122,7 @@ Este projeto foi criando com:
 |-- package.json
 |-- tsconfig.json
 |-- yarn.lock
+```
 
 <!-- GETTING STARTED -->
 ## Iniciando o projeto
