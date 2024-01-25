@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import MovieItem from "../MovieItem/MovieItem";
 import { MoviesContext } from "../../context/MoviesContext";
 import styles from "../../styles/MoviesSectionList/MoviesSectionList.module.scss";
-import "slick-carousel/slick/slick-theme.css";
 
 interface MoviesSectionListProps {
   sectionTitle: string;

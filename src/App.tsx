@@ -1,3 +1,4 @@
+import React from "react";
 import MoviesSectionList from "./components/MoviesSectionList/MoviesSectionList";
 import Header from "./components/Header/Header";
 import { MoviesStorage } from "./context/MoviesContext";
