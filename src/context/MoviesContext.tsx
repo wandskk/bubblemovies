@@ -21,7 +21,7 @@ export const MoviesStorage: React.FC<MoviesStorageProps> = ({ children }) => {
 
   const getData = React.useCallback(async () => {
     const genresMovies = await MoviesServices.getAllGenres();
-    const popularMovies = await MoviesServices.getTopRatedMovies();
+    const popularMovies = await MoviesServices.getPopularMovies();
     const topRatedMovies = await MoviesServices.getTopRatedMovies();
     const nowPlayingMovies = await MoviesServices.getNowPlayingMovies();
     const upcomingMovies = await MoviesServices.getUpcomingMovies();
