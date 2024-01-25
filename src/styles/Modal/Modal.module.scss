@@ -17,6 +17,12 @@
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     position: relative;
+    border-radius: 1rem;
+    overflow: hidden;
+
+    @media (max-width: 768px) {
+    max-width: 90%;
+    }
   }
 
   &--open {
@@ -26,13 +32,13 @@
 
   &__close {
     position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 20px;
+    top: .5rem;
+    right: 1.5rem;
+    font-size: 2rem;
     cursor: pointer;
     background: none;
     border: none;
     padding: 0;
-    color: #333;
+    color: #fff;
   }
 }

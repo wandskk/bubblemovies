@@ -9,7 +9,7 @@ interface MovieItemProps {
   movie: Movie;
 }
 
-const assetsUrl = process.env.THEMOVIEDB_URL;
+const assetsUrl = "https://www.themoviedb.org/t/p/w220_and_h330_face/";
 
 const MovieItem: React.FC<MovieItemProps> = ({ movie }) => {
   const context = React.useContext(MoviesContext);
