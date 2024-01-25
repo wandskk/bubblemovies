@@ -38,36 +38,28 @@ Este projeto foi criando com:
 |   |   |   |-- logo_white.png
 |   |   |   |-- screen.png
 |   |-- components
+|   |   |-- Filters
+|   |   |   |-- Filters.tsx
 |   |   |-- Footer
 |   |   |   |-- Footer.tsx
-|   |   |   |-- Footer.module.scss
 |   |   |-- Header
 |   |   |   |-- Header.tsx
-|   |   |   |-- Header.module.scss
 |   |   |-- Loading
 |   |   |   |-- Loading.tsx
-|   |   |   |-- Loading.module.scss
 |   |   |-- Logo
 |   |   |   |-- Logo.tsx
-|   |   |   |-- Logo.module.scss
 |   |   |-- Modal
 |   |   |   |-- Modal.tsx
-|   |   |   |-- Modal.module.scss
 |   |   |-- ModalMovie
 |   |   |   |-- ModalMovie.tsx
-|   |   |   |-- ModalMovie.module.scss
 |   |   |-- MovieItem
 |   |   |   |-- MovieItem.tsx
-|   |   |   |-- MovieItem.module.scss
 |   |   |-- MoviesSectionList
 |   |   |   |-- MoviesSectionList.tsx
-|   |   |   |-- MoviesSectionList.module.scss
 |   |   |-- SearchBar
 |   |   |   |-- SearchBar.tsx
-|   |   |   |-- SearchBar.module.scss
 |   |   |-- ToggleSwitch
 |   |   |   |-- ToggleSwitch.tsx
-|   |   |   |-- ToggleSwitch.module.scss
 |-- context
 |   |-- MoviesContext.tsx
 |-- data
@@ -87,6 +79,8 @@ Este projeto foi criando com:
 |   |   |   |-- index.ts
 |-- styles
 |   |-- _vars.scss
+|   |-- Filters
+|   |   |-- Filters.module.scss
 |   |-- Footer
 |   |   |-- Footer.module.scss
 |   |-- Header
