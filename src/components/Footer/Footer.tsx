@@ -5,7 +5,7 @@ const Footer = () => {
   const year = new Date().getFullYear();
   return (
     <footer className={styles.footer}>
-      <p>BubbleMovies - Your favorit movies site</p>
+      <p>BubbleMovies - Your favorite movies site</p>
 
       <a
         className={styles.footer__link}
