@@ -17,54 +17,25 @@ export const MoviesStorage: React.FC<MoviesStorageProps> = ({ children }) => {
   const [topRated, setTopRated] = React.useState<[]>([]);
   const [upcoming, setUpcoming] = React.useState<[]>([]);
   const [search, setSearch] = React.useState<string>("");
-  const [featured, setFeatured] = React.useState<boolean>(false);
+  const [featured, setFeatured] = React.useState<boolean>(false);  
 
-  console.log(featured)
+  const getData = React.useCallback(async () => {
+    const genresMovies = await MoviesServices.getAllGenres();
+    const popularMovies = await MoviesServices.getTopRatedMovies();
+    const topRatedMovies = await MoviesServices.getTopRatedMovies();
+    const nowPlayingMovies = await MoviesServices.getNowPlayingMovies();
+    const upcomingMovies = await MoviesServices.getUpcomingMovies();
 
-  const getNowPlayingMovies = React.useCallback(async () => {
-    const allMovies = await MoviesServices.getNowPlayingMovies();
-    setNowPlaying(allMovies);
-  }, []);
-
-  const getPopularMovies = React.useCallback(async () => {
-    const allMovies = await MoviesServices.getPopularMovies();
-    setPopular(allMovies);
-  }, []);
-
-  const getTopRatedMovies = React.useCallback(async () => {
-    const allMovies = await MoviesServices.getTopRatedMovies();
-    setTopRated(allMovies);
-  }, []);
-
-  const getUpcomingMovies = React.useCallback(async () => {
-    const allMovies = await MoviesServices.getUpcomingMovies();
-    setUpcoming(allMovies);
-  }, []);
-
-  const getAllGenres = React.useCallback(async () => {
-    const allGenres = await MoviesServices.getAllGenres();
-    setGenres(allGenres);
+    setGenres(genresMovies);
+    setPopular(popularMovies);
+    setTopRated(topRatedMovies);
+    setNowPlaying(nowPlayingMovies);
+    setUpcoming(upcomingMovies);
   }, []);
 
   React.useEffect(() => {
-    getNowPlayingMovies();
-  }, [getNowPlayingMovies]);
-
-  React.useEffect(() => {
-    getPopularMovies();
-  }, [getPopularMovies]);
-
-  React.useEffect(() => {
-    getTopRatedMovies();
-  }, [getTopRatedMovies]);
-
-  React.useEffect(() => {
-    getUpcomingMovies();
-  }, [getUpcomingMovies]);
-
-  React.useEffect(() => {
-    getAllGenres();
-  }, [getAllGenres]);
+    getData();
+  }, [getData]);
 
   return (
     <MoviesContext.Provider
@@ -74,10 +45,10 @@ export const MoviesStorage: React.FC<MoviesStorageProps> = ({ children }) => {
         topRated,
         upcoming,
         genres,
-        search, 
-        featured, 
+        search,
+        featured,
         setSearch,
-        setFeatured
+        setFeatured,
       }}
     >
       {children}
