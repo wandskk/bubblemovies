@@ -10,7 +10,9 @@ export interface MoviesContextProps {
     genres: Genre[];
     search: string;
     featured: boolean;
+    selected: string;
     loading: boolean;
     setSearch: React.Dispatch<SetStateAction<string>>;
+    setSelected: React.Dispatch<SetStateAction<string>>;
     setFeatured: React.Dispatch<SetStateAction<boolean>>;
 }

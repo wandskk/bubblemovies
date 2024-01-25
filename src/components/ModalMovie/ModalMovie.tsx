@@ -14,9 +14,6 @@ interface ModalMovieProps {
 const ModalMovie: React.FC<ModalMovieProps> = ({ movie, isOpen, onClose }) => {
   const context = React.useContext(MoviesContext);
   const assetsUrl = "https://www.themoviedb.org/t/p/w220_and_h330_face/";
-  if (isOpen) {
-    console.log(movie);
-  }
 
   const genres = movie.genre_ids
     .map((genre) => context?.genres.find((g) => g.id === genre))

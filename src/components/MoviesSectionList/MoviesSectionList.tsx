@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import MovieItem from "../MovieItem/MovieItem";
 import { MoviesContext } from "../../context/MoviesContext";
 import styles from "../../styles/MoviesSectionList/MoviesSectionList.module.scss";
@@ -12,7 +12,7 @@ const MoviesSectionList: React.FC<MoviesSectionListProps> = ({
   sectionTitle,
   type,
 }) => {
-  const context = useContext(MoviesContext);
+  const context = React.useContext(MoviesContext);
 
   const typesData = {
     nowPlaying: context?.nowPlaying,
@@ -29,7 +29,14 @@ const MoviesSectionList: React.FC<MoviesSectionListProps> = ({
         ? movie.title.toLowerCase().includes(context.search.toLowerCase())
         : true
     )
-    .filter((movie) => (context?.featured ? movie.featured : true));
+    .filter((movie) => (context?.featured ? movie.featured : true))
+    .filter((movie) => {
+      if (context?.selected === "0") {
+        return true;
+      } else {
+        return movie.genre_ids.toString().includes(context?.selected || "0");
+      }
+    });
 
   if (data?.length === 0) return null;
   return (
