@@ -17,9 +17,11 @@ export const MoviesStorage: React.FC<MoviesStorageProps> = ({ children }) => {
   const [topRated, setTopRated] = React.useState<[]>([]);
   const [upcoming, setUpcoming] = React.useState<[]>([]);
   const [search, setSearch] = React.useState<string>("");
-  const [featured, setFeatured] = React.useState<boolean>(false);  
+  const [featured, setFeatured] = React.useState<boolean>(false);
+  const [loading, setLoading] = React.useState<boolean>(false);
 
   const getData = React.useCallback(async () => {
+    setLoading(true);
     const genresMovies = await MoviesServices.getAllGenres();
     const popularMovies = await MoviesServices.getPopularMovies();
     const topRatedMovies = await MoviesServices.getTopRatedMovies();
@@ -31,6 +33,7 @@ export const MoviesStorage: React.FC<MoviesStorageProps> = ({ children }) => {
     setTopRated(topRatedMovies);
     setNowPlaying(nowPlayingMovies);
     setUpcoming(upcomingMovies);
+    setLoading(false)
   }, []);
 
   React.useEffect(() => {
@@ -47,6 +50,7 @@ export const MoviesStorage: React.FC<MoviesStorageProps> = ({ children }) => {
         genres,
         search,
         featured,
+        loading,
         setSearch,
         setFeatured,
       }}
