@@ -31,7 +31,7 @@ const Filters = () => {
           onChange={(e) => setSelected(e.target.value)}
           id="genre"
         >
-          <option value="0">All Genders</option>
+          <option value="0">All Genres</option>
           {context?.genres.map((option: Genre) => (
             <option key={option.id} value={option.id}>
               {option.name}
